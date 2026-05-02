@@ -1,0 +1,67 @@
+@CandidateReviewExercise_HostAddress = http://localhost:5077
+
+GET {{CandidateReviewExercise_HostAddress}}/
+Accept: application/json
+
+###
+
+GET {{CandidateReviewExercise_HostAddress}}/customers/1/invoices?userEmail=test@example.com
+Accept: application/json
+
+###
+
+GET {{CandidateReviewExercise_HostAddress}}/customers/999/invoices?userEmail=test@example.com
+Accept: application/json
+
+###
+
+GET {{CandidateReviewExercise_HostAddress}}/reports/customer/1?status=Unpaid
+Accept: application/json
+
+###
+
+POST {{CandidateReviewExercise_HostAddress}}/invoices/101/pay
+Content-Type: application/json
+Accept: application/json
+
+{
+  "cardNumber": "4111111111111111",
+  "cvv": "123",
+  "currency": "CZK",
+  "email": "buyer@example.com"
+}
+
+###
+
+POST {{CandidateReviewExercise_HostAddress}}/invoices/999/pay
+Content-Type: application/json
+Accept: application/json
+
+{
+  "cardNumber": "4111111111111111",
+  "cvv": "123",
+  "currency": "CZK",
+  "email": "buyer@example.com"
+}
+
+###
+
+POST {{CandidateReviewExercise_HostAddress}}/orders/501/status
+Content-Type: application/json
+Accept: application/json
+
+{
+  "status": "Shipped",
+  "changedBy": "admin@example.com"
+}
+
+###
+
+POST {{CandidateReviewExercise_HostAddress}}/orders/501/status
+Content-Type: application/json
+Accept: application/json
+
+{
+  "status": "Shipped', ChangedBy = 'attacker@example.com",
+  "changedBy": "admin@example.com"
+}

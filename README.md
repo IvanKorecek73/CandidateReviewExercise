@@ -32,6 +32,8 @@ Nemusite opravit cely projekt. Pokud mate cas na implementaci, vyberte 2 az 3 ne
 dotnet run
 ```
 
+Priklady volani jsou pripravene take v souboru `CandidateReviewExercise.http`, ktery lze spoustet primo z Visual Studia nebo VS Code.
+
 Priklady volani:
 
 ```powershell
@@ -40,4 +42,3 @@ curl "http://localhost:5000/reports/customer/1?status=Unpaid"
 curl -X POST http://localhost:5000/invoices/101/pay -H "Content-Type: application/json" -d "{\"cardNumber\":\"4111111111111111\",\"cvv\":\"123\",\"currency\":\"CZK\",\"email\":\"buyer@example.com\"}"
 curl -X POST http://localhost:5000/orders/501/status -H "Content-Type: application/json" -d "{\"status\":\"Shipped\",\"changedBy\":\"admin@example.com\"}"
 ```
-
